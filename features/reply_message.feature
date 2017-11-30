@@ -13,6 +13,7 @@ Feature: Reply to message
     Given I am logged in as "Daniel"
     And I am on the "home page"
     And I click on the "Inbox" link
+    And I am on the "Inbox" page
     And I click on the "View" link
     And I send a mail to "Jenny"
     And I am on the "home page"
