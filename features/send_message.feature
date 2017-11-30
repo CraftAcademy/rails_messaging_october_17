@@ -11,9 +11,10 @@ Feature: Send messages
 
   Scenario: Sending a message
     Given I am logged in as "Daniel"
-    And I click on "Compose" button
-    And  I select "Raoul"
-    And I fill in "Subject" with "Subject Content"
-    And I fill in "Message" with "Message Content"
-    And I click on "Send Message" button
-    Then I should be on "Conversation Number" page
+    And I send a mail to "Jenny"
+    And I am on the "home page"
+    And I click on the "Logout" link
+    Given I am logged-in as "Jenny"
+    And I am on the "home page"
+    And I click on the "Inbox" link
+    Then I should have "1" messages
