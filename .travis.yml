@@ -7,8 +7,7 @@ services:
 before_script:
   - bundle exec rails db:create db:migrate RAILS_ENV=test
 script:
-  - bundle exec rspec
-  - bundle exec cucumber
+  - rails ci:tests
 deploy:
   provider: heroku
   api_key:
