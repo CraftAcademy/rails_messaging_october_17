@@ -15,17 +15,14 @@ Given("I send a mail to {string}") do |name|
 end
 
 Given("I am on the {string}") do |string|
-  pending # Write code here that turns the phrase above into concrete actions
+  visit root_path
 end
 
-Given("I click on the {string} link") do |string|
-  pending # Write code here that turns the phrase above into concrete actions
+Given("I click on the {string} link") do |element|
+  click_link_or_button element
 end
 
-Given("I am logged-in as {string}") do |string|
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
-Then("I should have {string} messages") do |string|
-  pending # Write code here that turns the phrase above into concrete actions
+Then("I should have {string} messages") do |expected_count|
+  count = @receiver.mailbox.inbox.count
+  expect(count).to eq expected_count.to_i
 end
