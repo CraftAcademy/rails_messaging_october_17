@@ -1,14 +1,23 @@
 ## RAILS Messaging Assignment w. 5 Craft Academy Lions
-###CA Mailboxer Nov 29 2017
+###CA Mailboxer Nov 30 2017
 
-- Successfully installed/required testing environment including Travis and Coveralls
-- Updated and refined Pivotal boards
-- Continued working on acceptance tests for log-in feature
-- Started on writing acceptance test for landing page feature
+- Installed new gem 'launchy'
+- Updated, organized and created new stories on PivotalTracker
+- Log-in feature merged
+- Deployed on Heroku https://rails-messaging-lions.herokuapp.com/
+- Deploy automatically every time travis builds successfully
+- Landing page feature PR ready for final review
+- Send message PR ready for final review
+- removed email notifications from travis PR ready for final review
+- Delete message ready for final review
+- Reply to message PR created and tagged [WIP]
+- Mailbox unit tests PR created and tagged [WIP]
+- User can log out PR created and tagged [WIP]
 
 ###Next steps:
-- Continue writing acceptance test for log in and implement unit tests  
-- Continue writing unit tests for Landing page   
+- Continue writing acceptance test for Log out and implement unit tests
+- Continue writing acceptance tests and unit tests for Message features
+- Start writing acceptance test for Signup and implement unit tests
 
 
 ###CA Mailboxer Nov 28-29 2017
@@ -38,11 +47,12 @@ group :development, :test do
    gem 'shoulda-matchers'
    gem 'cucumber-rails', require: false
    gem 'database_cleaner'
+   gem 'launchy'
 ```
 Add to .rspec:
 ```
 --color
---format documentation   
+--format documentation
 ```
 Add to config/application.rb:
 ```
@@ -57,4 +67,44 @@ Shoulda::Matchers.configure do |config|
   with.test_framework :rspec
   with.library :rails
 ```
-Add `coveralls` and requirements    
+Add `coveralls` and requirements
+
+Add to .travis.yml
+```
+- bundle exec rails ci:tests
+```
+```
+app:
+  master: rails-messaging-lions
+run:
+  - bundle exec rails db:migrate
+```
+Add to features/support/env.rb
+```
+require 'coveralls'
+Coveralls.wear_merged!('rails')
+```
+Add features/support/warden.rb
+```
+Warden.test_mode!
+World Warden::Test::Helpers
+After { Warden.test_reset! }
+```
+Add lib/tasks/ci.rake
+```
+unless Rails.env.production?
+ require 'rspec/core/rake_task'
+ require 'cucumber/rake/task'
+ require 'coveralls/rake/task'
+
+ Coveralls::RakeTask.new
+
+ namespace :ci do
+   task tests: [:spec, :cucumber, 'coveralls:push']
+ end
+end
+```
+Add to spec/spec_helper.rb
+```
+Coveralls.wear_merged!('rails')
+```
