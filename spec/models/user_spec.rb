@@ -47,6 +47,10 @@ RSpec.describe User, type: :model do
       expect(@recipient.mailbox.inbox.last.subject).to eq 'subject'
     end
 
+    it 'message has a body' do
+      expect(@recipient.mailbox.inbox.first.messages[0][:body]).to eq 'message'
+    end
+
     it 'conversation can be moved to trash' do
       @conversation.mark_as_deleted @recipient
       expect(@recipient.mailbox.inbox.count).to eq 0
