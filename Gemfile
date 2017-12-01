@@ -22,7 +22,7 @@ end
 group :development, :test do
 
   gem 'factory_bot_rails'
-  gem 'pry-byebug'
+  gem 'pry'
   gem 'pry-rails'
   gem 'rspec-rails'
   gem 'shoulda-matchers'
@@ -30,6 +30,8 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'coveralls', require: false
   gem 'launchy'
+  gem 'selenium-webdriver'
+  gem 'rspec-retry'
 
 end
 
