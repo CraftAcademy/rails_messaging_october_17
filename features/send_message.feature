@@ -12,9 +12,9 @@ Feature: Send messages
   Scenario: Sending a message
     Given I am logged in as "Daniel"
     And I send a mail to "Jenny"
-    And I am on the "home page"
+    And I visit the "home page"
     And I click on the "Logout" link
     Given I am logged in as "Jenny"
-    And I am on the "home page"
+    And I visit the "home page"
     And I click on the "Inbox" link
     Then I should have "1" messages
