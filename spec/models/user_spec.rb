@@ -47,9 +47,14 @@ RSpec.describe User, type: :model do
       expect(@recipient.mailbox.inbox.last.subject).to eq 'subject'
     end
 
-    it 'conversation can be deleted' do
+    it 'conversation can be moved to trash' do
       @conversation.mark_as_deleted @recipient
       expect(@recipient.mailbox.inbox.count).to eq 0
+    end
+
+    it 'conversation can be unstrashed' do
+      @conversation.untrash(@recipient)
+      expect(@recipient.mailbox.inbox.count).to eq 1
     end
   end
 end
