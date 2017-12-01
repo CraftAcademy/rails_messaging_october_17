@@ -12,10 +12,10 @@ Feature: Move back message to Inbox
   Scenario: Deleting a message
     Given I am logged in as "Daniel"
     And I send a mail to "Jenny"
-    And I am on the "home page"
+    And I visit the "home page"
     And I click on the "Logout" link
-    Given I am logged-in as "Jenny"
-    And I am on the "home page"
+    Given I am logged in as "Jenny"
+    And I visit the "home page"
     And I click on the "Inbox" link
     Then I should have "1" messages
     And I click on the "View" link
@@ -24,4 +24,4 @@ Feature: Move back message to Inbox
     And I click on the "Trash" link
     And I click on the "View" link
     And I click on the "Untrash" link
-    Then I am on the "home page"
+    Then I visit the "home page"
