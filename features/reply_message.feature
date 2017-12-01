@@ -11,10 +11,6 @@ Feature: Reply to message
 
   Scenario: Replying to a message
     Given I am logged in as "Daniel"
-    And I am on the "home page"
-    And I click on the "Inbox" link
-    And I am on the "Inbox" page
-    And I click on the "View" link
     And I send a mail to "Jenny"
     And I am on the "home page"
     And I click on the "Logout" link
@@ -23,3 +19,5 @@ Feature: Reply to message
     And I click on the "Inbox" link
     Then I should have "1" messages
     And I click on the "View" link
+    And I click on the "Reply" link
+    And I click on the "Logout" link
