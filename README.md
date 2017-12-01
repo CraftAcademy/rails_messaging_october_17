@@ -1,60 +1,43 @@
-## RAILS Messaging Assignment w. 5 Craft Academy Lions
-###CA Mailboxer Nov 29 2017
+## CA Mailboxer
 
-- Successfully installed/required testing environment including Travis and Coveralls
-- Updated and refined Pivotal boards
-- Continued working on acceptance tests for log-in feature
-- Started on writing acceptance test for landing page feature
+### Assignment Ruby 2.4.0 Code forked from CraftAcademy
 
-###Next steps:
-- Continue writing acceptance test for log in and implement unit tests  
-- Continue writing unit tests for Landing page   
+Using untested legacy code do following: Write Acceptance tests for the entire workflow using Cucumber Write Unit tests for the models using RSpec Find and correct eventual errors in the legacy code Set up an automated way of deploying the software with Heroku
 
-
-###CA Mailboxer Nov 28-29 2017
-
-**Planning**
+### Planning
 See our plan on PivotalTracker https://www.pivotaltracker.com/n/projects/2132546
 
-**Assignment**
-Ruby 2.4.0
-Code forked from CraftAcademy
+## Workflow outline
 
-Using untested legacy code do following:
-Write Acceptance tests for the entire workflow using Cucumber
-Write Unit tests for the models using RSpec
-Find and correct eventual errors in the legacy code
-Set up an automated way of deploying the software with Heroku
+- Installed/required testing environment including RSpec, Cucumber, Travis and Coveralls
+- Helpers: Warden and Shoulda Matchers
+- Database cleaner strategy
+- Behaviour and acceptance tests for:
+1. Landing page feature
+2. Log-in feature. User credentials, log-in and log out, reset password, log in failure scenarios.
+3. Messaging feature: receive, reply, delete, trash
+4. Set up auto deploy to Heroku
+5. 'Remember me' feature (pending)
+6. Create account (pending)
 
-**Install**
+## Latest Status, Dec 1 2017
 
-Add to Gemfile:
-```
-group :development, :test do
-   gem 'factory_bot_rails'
-   gem 'pry-byebug'
-   gem 'pry-rails'
-   gem 'rspec-rails'
-   gem 'shoulda-matchers'
-   gem 'cucumber-rails', require: false
-   gem 'database_cleaner'
-```
-Add to .rspec:
-```
---color
---format documentation   
-```
-Add to config/application.rb:
-```
- generate.routing_specs false
- generate.controller_specs false
+### Completed
 
-```
-Add shoulda-matchers to rails-helper:
-```
-Shoulda::Matchers.configure do |config|
-  config.integrate do |with|
-  with.test_framework :rspec
-  with.library :rails
-```
-Add `coveralls` and requirements    
+- Landing page acceptance tests green and merged
+- Send Message acceptance tests green and merged
+
+### In Progress
+
+- Unit tests for mailboxer green, waiting for code review
+- Log out acceptance tests green, waiting for code review
+- Reply to message acceptance tests green, refactoring in progress
+- Receive message acceptance tests in progress
+- Store login information acceptance tests in progress
+- Delete message acceptance tests green, refactoring in progress
+
+### Next Steps
+
+- Create acceptance tests for sign up feature
+- Create acceptance tests for password reset feature
+- Create acceptance tests for login failure feature
