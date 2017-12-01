@@ -14,7 +14,7 @@ Given("I send a mail to {string}") do |name|
   @user.send_message(@receiver, 'Lorem ipsum...', 'Subject')
 end
 
-Given("I am on the {string}") do |string|
+Given("I visit the {string}") do |string|
   visit root_path
 end
 
