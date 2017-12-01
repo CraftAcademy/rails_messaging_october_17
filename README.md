@@ -41,3 +41,29 @@ See our plan on PivotalTracker https://www.pivotaltracker.com/n/projects/2132546
 - Create acceptance tests for sign up feature
 - Create acceptance tests for password reset feature
 - Create acceptance tests for login failure feature
+
+## Status Nov 30 2017
+
+- Installed new gem 'launchy'
+- Updated, organized and created new stories on PivotalTracker
+- Log-in feature merged
+- Deployed on Heroku https://rails-messaging-lions.herokuapp.com/
+- Deploy automatically every time travis builds successfully
+- Landing page feature PR ready for final review
+- Send message PR ready for final review
+- removed email notifications from travis PR ready for final review
+- Delete message ready for final review
+- Reply to message PR created and tagged [WIP]
+- Mailbox unit tests PR created and tagged [WIP]
+- User can log out PR created and tagged [WIP]
+
+### Next steps:
+- Continue writing acceptance test for Log out and implement unit tests
+- Continue writing acceptance tests and unit tests for Message features
+- Start writing acceptance test for Signup and implement unit tests
+
+
+## Status Nov 28-29 2017
+
+- Plan set up. Project initialized on PivotalTracker and stories created
+- Test environment set up, cucumber, rspec, necessary gems. Configuration files modified correctly.
