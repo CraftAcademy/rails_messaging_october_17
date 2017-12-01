@@ -16,8 +16,8 @@ RSpec.describe User, type: :model do
 
   describe 'mailbox' do
     before do
-      @sender = User.create(name: "Alfred", email: "whatever@whatever.com", password: "whatever")
-      @recipient = User.create(name: "Alfrod", email: "whatever@whatover.com", password: "whatover")
+      @sender = FactoryBot.create(:user)
+      @recipient = FactoryBot.create(:user)
       @sender.send_message(@recipient, 'message', 'subject')
       @conversation = @recipient.mailbox.inbox.first
     end
