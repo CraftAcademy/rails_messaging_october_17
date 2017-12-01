@@ -24,3 +24,4 @@ Feature: Move back message to Inbox
     And I click on the "Trash" link
     And I click on the "View" link
     And I click on the "Untrash" link
+    Then I am on the "home page"
